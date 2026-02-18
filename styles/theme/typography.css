@@ -1,0 +1,119 @@
+/*
+Typography governance: "controlled chaos"
+- Script font is for emotional emphasis, not everything.
+- Sans font carries dense UI/body content.
+- Mono is only for prompts/code.
+*/
+
+:root {
+  --script-weight: 700;
+  --sans-heading-weight: 600;
+  --sans-body-weight: 400;
+  --label-weight: 650;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md);
+  line-height: var(--lh-body);
+  color: var(--color-neutral-dark);
+}
+
+h1,
+.h-script-display {
+  font-family: var(--font-script);
+  font-weight: var(--script-weight);
+  font-size: var(--text-display-xl);
+  line-height: var(--lh-tight);
+  letter-spacing: 0.01em;
+}
+
+h2,
+.h-display {
+  font-family: var(--font-sans);
+  font-weight: var(--sans-heading-weight);
+  font-size: var(--text-display-lg);
+  line-height: var(--lh-heading);
+}
+
+h3,
+.h-section {
+  font-family: var(--font-sans);
+  font-weight: var(--sans-heading-weight);
+  font-size: var(--text-heading-md);
+  line-height: var(--lh-heading);
+}
+
+h4,
+.h-card {
+  font-family: var(--font-sans);
+  font-weight: var(--sans-heading-weight);
+  font-size: var(--text-heading-sm);
+  line-height: var(--lh-heading);
+}
+
+p,
+ul,
+ol,
+.text-body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md);
+  font-weight: var(--sans-body-weight);
+  line-height: var(--lh-body);
+}
+
+.text-body-lg {
+  font-size: var(--text-body-lg);
+}
+
+.text-meta {
+  font-size: var(--text-body-sm);
+  color: var(--color-muted-gray);
+}
+
+.text-label,
+.badge,
+.tag-pill {
+  font-size: var(--text-label-xs);
+  font-weight: var(--label-weight);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.text-code,
+pre,
+code,
+kbd {
+  font-family: var(--font-mono);
+}
+
+/* Controlled chaos helpers */
+.script-pop {
+  font-family: var(--font-script);
+  font-weight: var(--script-weight);
+  transform: rotate(-0.6deg);
+}
+
+.script-pop--alt {
+  font-family: var(--font-script);
+  font-weight: var(--script-weight);
+  transform: rotate(0.8deg);
+}
+
+/* Use these wrappers to force consistency inside dense modules */
+.sans-zone,
+.sans-zone * {
+  font-family: var(--font-sans);
+}
+
+.script-zone > .script-only {
+  font-family: var(--font-script);
+}
+
+/* Readability and responsive type */
+@media (max-width: 48rem) {
+  h1,
+  .h-script-display {
+    font-size: var(--text-display-lg);
+  }
+}

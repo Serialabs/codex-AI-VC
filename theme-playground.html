@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" class="page-theme">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme Playground — Controlled Chaos</title>
+    <link rel="stylesheet" href="styles/theme/theme.css" />
+    <style>
+      .grid { display: grid; gap: var(--space-4); }
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .swatch { min-height: 88px; border-radius: var(--radius-sm); padding: var(--space-3); border: var(--border-solid); }
+      .mono { font-family: var(--font-mono); }
+      .sample-nav { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+      @media (max-width: 900px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main class="container section sans-zone">
+      <header class="panel panel--blue panel--chaos-b reveal-up">
+        <p class="text-label">Theme foundation demo</p>
+        <h1 class="h-script-display">Controlled <span class="script-pop">Chaos</span> System</h1>
+        <p class="text-body-lg">Script for drama, sans for clarity. Irregular edges with strict typography rules.</p>
+      </header>
+
+      <section class="section reveal-up">
+        <h2 class="h-display">Typography</h2>
+        <div class="grid grid-2">
+          <article class="panel panel--chaos-a">
+            <h3 class="h-section">Script accents only</h3>
+            <p><span class="script-pop">AI-Powered VC</span> should pop, while body text remains readable.</p>
+            <p class="text-meta">Meta in sans, muted gray.</p>
+          </article>
+          <article class="panel panel--chaos-c">
+            <h4 class="h-card">Body + labels</h4>
+            <p>Use sans for cards, transcript blocks, and data-heavy sections.</p>
+            <p class="text-label">label / badge / tag</p>
+            <p class="mono">const decision = 'INVEST';</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal-up">
+        <h2 class="h-display">Color swatches</h2>
+        <div class="grid grid-3">
+          <div class="swatch" style="background: var(--color-bg-cream)">bg-cream</div>
+          <div class="swatch" style="background: var(--color-primary-red)">primary-red</div>
+          <div class="swatch" style="background: var(--color-primary-green)">primary-green</div>
+          <div class="swatch" style="background: var(--color-primary-blue)">primary-blue</div>
+          <div class="swatch" style="background: var(--color-primary-purple)">primary-purple</div>
+          <div class="swatch" style="background: var(--color-primary-yellow)">primary-yellow</div>
+        </div>
+      </section>
+
+      <section class="section reveal-up">
+        <h2 class="h-display">Components + motion</h2>
+        <div class="sample-nav">
+          <a href="#" class="underline-slide">Prompt</a>
+          <a href="#" class="underline-slide">Reports</a>
+          <a href="#" class="underline-slide">About</a>
+        </div>
+        <div class="grid grid-2" style="margin-top: var(--space-4)">
+          <article class="panel panel--green panel--chaos-a interactive hover-lift">
+            <h3 class="h-card">ReportCard-like panel</h3>
+            <p>Hover for lift and border saturation.</p>
+            <span class="tag-pill">Seed</span>
+          </article>
+          <article class="panel panel--yellow panel--chaos-c">
+            <h3 class="h-card">Button + status pills</h3>
+            <p style="display:flex;gap:var(--space-2);flex-wrap:wrap">
+              <span class="tag-pill tag-pill--success">INVEST</span>
+              <span class="tag-pill tag-pill--warning">DIG DEEPER</span>
+              <span class="tag-pill tag-pill--error">PASS</span>
+            </p>
+            <p>
+              <button class="button button--primary button-lift">Primary CTA</button>
+              <button class="button button--secondary button-lift">Secondary</button>
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/theme-reveal.js"></script>
+  </body>
+</html>

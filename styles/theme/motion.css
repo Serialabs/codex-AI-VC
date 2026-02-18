@@ -1,0 +1,120 @@
+:root {
+  --motion-fast: 150ms;
+  --motion-medium: 250ms;
+  --motion-slow: 500ms;
+  --motion-loop: 1.5s;
+
+  --ease-out-cubic: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-quad: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-linear: linear;
+}
+
+/* Shared transition contracts */
+.transition-fast {
+  transition: all var(--motion-fast) var(--ease-out-cubic);
+}
+
+.transition-medium {
+  transition: all var(--motion-medium) var(--ease-out-cubic);
+}
+
+.transition-slow {
+  transition: all var(--motion-slow) var(--ease-out-cubic);
+}
+
+.hover-lift {
+  transition:
+    transform var(--motion-medium) var(--ease-out-cubic),
+    box-shadow var(--motion-medium) var(--ease-out-cubic),
+    border-color var(--motion-medium) var(--ease-out-cubic);
+}
+
+.hover-lift:hover,
+.hover-lift:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.button-lift {
+  transition:
+    transform var(--motion-fast) var(--ease-out-cubic),
+    box-shadow var(--motion-fast) var(--ease-out-cubic),
+    filter var(--motion-fast) var(--ease-out-cubic);
+}
+
+.button-lift:hover,
+.button-lift:focus-visible {
+  transform: translateY(-2px);
+  filter: saturate(1.05);
+  box-shadow: var(--shadow-sm);
+}
+
+.button-lift:active {
+  transform: translateY(-1px);
+}
+
+.underline-slide {
+  position: relative;
+  text-decoration: none;
+}
+
+.underline-slide::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width var(--motion-fast) var(--ease-out-cubic);
+}
+
+.underline-slide:hover::after,
+.underline-slide:focus-visible::after {
+  width: 100%;
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity var(--motion-slow) var(--ease-out-cubic),
+    transform var(--motion-slow) var(--ease-out-cubic);
+}
+
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger > :nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger > :nth-child(2) { transition-delay: 80ms; }
+.reveal-stagger > :nth-child(3) { transition-delay: 160ms; }
+.reveal-stagger > :nth-child(4) { transition-delay: 240ms; }
+.reveal-stagger > :nth-child(5) { transition-delay: 320ms; }
+
+@keyframes subtle-wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(1.8deg); }
+  75% { transform: rotate(-1.8deg); }
+}
+
+.wiggle-on-hover:hover {
+  animation: subtle-wiggle 320ms ease-in-out 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-up {
+    opacity: 1;
+    transform: none;
+  }
+}
